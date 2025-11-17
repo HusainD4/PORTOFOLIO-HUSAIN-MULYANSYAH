@@ -349,6 +349,290 @@
       object-fit: cover;
     }
     
+    .bio-card {
+      background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(249, 168, 212, 0.05));
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .bio-card::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--rose));
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .bio-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .bio-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: block;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 10px 25px rgba(30, 41, 59, 0.1);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      color: var(--dark);
+      box-shadow: 0 4px 10px rgba(30, 41, 59, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(30, 41, 59, 0.1);
+      color: var(--accent);
+    }
+    
+    .timeline {
+      position: relative;
+      margin-left: 20px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--rose));
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 20px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: -6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--accent);
+    }
+    
+    .timeline-item:last-child::before {
+      background: var(--rose);
+      border-color: var(--rose);
+    }
+    
+    .timeline-item h4 {
+      margin: 0 0 5px 0;
+      font-size: 18px;
+      color: var(--dark);
+    }
+    
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    
+    .timeline-item .period {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 3px 8px;
+      background: rgba(96, 165, 250, 0.1);
+      color: var(--accent);
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .experience-timeline {
+      position: relative;
+      margin-left: 20px;
+    }
+    
+    .experience-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--rose), var(--accent));
+    }
+    
+    .experience-item {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 20px;
+    }
+    
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: -6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--rose);
+    }
+    
+    .experience-item:last-child::before {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    
+    .experience-item h4 {
+      margin: 0 0 5px 0;
+      font-size: 18px;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .experience-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    
+    .experience-item .period {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 3px 8px;
+      background: rgba(249, 168, 212, 0.1);
+      color: var(--rose);
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .experience-item .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--rose), var(--accent));
+      color: white;
+      font-size: 12px;
+    }
+    
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    
+    .media-card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 5px 15px rgba(30, 41, 59, 0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .media-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(30, 41, 59, 0.08);
+    }
+    
+    .media-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--rose));
+      color: white;
+      font-size: 20px;
+    }
+    
+    .media-card h4 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      color: var(--dark);
+    }
+    
+    .media-card p {
+      margin: 0 0 12px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    
+    .media-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background: rgba(96, 165, 250, 0.1);
+      color: var(--accent);
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    
+    .media-card a:hover {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .instagram-embed {
+      width: 100%;
+      height: 500px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(30, 41, 59, 0.05);
+      margin-bottom: 16px;
+    }
+    
+    .instagram-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
     footer {
       padding: 30px;
       text-align: center;
@@ -383,6 +667,9 @@
       .gallery {
         grid-template-columns: repeat(2, 1fr);
       }
+      .media-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
     }
     
     @media(max-width: 560px) {
@@ -403,6 +690,9 @@
       .gallery {
         grid-template-columns: 1fr;
       }
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -416,11 +706,11 @@
       <a href="#" class="nav-btn" data-section="about">
         <i class="fas fa-user"></i> Tentang
       </a>
-      <a href="#" class="nav-btn" data-section="it">
-        <i class="fas fa-laptop-code"></i> Bidang IT
+      <a href="#" class="nav-btn" data-section="education">
+        <i class="fas fa-graduation-cap"></i> Pendidikan
       </a>
-      <a href="#" class="nav-btn" data-section="visual">
-        <i class="fas fa-camera"></i> Foto & Video
+      <a href="#" class="nav-btn" data-section="portfolio">
+        <i class="fas fa-images"></i> Hasil Karya
       </a>
       <a href="#" class="nav-btn" data-section="business">
         <i class="fas fa-briefcase"></i> Haisen
@@ -439,181 +729,189 @@
         <i class="fas fa-arrow-left"></i> Kembali
       </a>
       
-      <div class="card scroll-animate">
-        <h2><div class="card-icon"><i class="fas fa-user"></i></div> Halo — Saya <strong>Husain Mulyansyah</strong></h2>
-        <p class="lead">Saya bergerak di bidang IT (pengembangan & proyek), serta profesional di fotografi & videografi dengan brand <strong>Haisen Official</strong>. Menggabungkan kemampuan teknis dan estetika visual untuk solusi digital dan karya kreatif.</p>
-        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn btn-primary" href="https://wa.me/6282138434932" target="_blank">
-            <i class="fab fa-whatsapp"></i> Hubungi: 0821-3843-4932
-          </a>
-          <a class="btn" href="#" data-section="it">
-            <i class="fas fa-laptop-code"></i> Lihat Prestasi IT
-          </a>
-          <a class="btn" href="#" data-section="visual">
-            <i class="fas fa-camera"></i> Lihat Karya Visual
-          </a>
-        </div>
-        <div style="margin-top:16px;color:var(--muted);font-size:14px">
-          <i class="fas fa-folder-open"></i> Portofolio lengkap & dokumen: 
-          <a href="https://share.google/sI8xSOQXULMktF5MF" target="_blank">Link Google Drive</a>
-        </div>
-      </div>
-
-      <div class="card scroll-animate">
-        <h3><div class="card-icon"><i class="fas fa-info-circle"></i></div> Ringkasan</h3>
-        <p class="muted">Nama: <strong>Husain Mulyansyah</strong><br>Brand: <strong>Haisen Official</strong></p>
-        <div style="margin-top:12px"><strong>Spesialis:</strong>
-          <div class="muted">Fotografi, Videografi, Web Development, Data Analysis</div>
-        </div>
-
-        <div style="margin-top:16px">
-          <strong><i class="fas fa-phone-alt"></i> Kontak Cepat</strong>
-          <div style="margin-top:12px">
-            <a class="btn btn-primary" href="https://wa.me/6282138434932" target="_blank">
-              <i class="fab fa-whatsapp"></i> WhatsApp: 0821-3843-4932
+      <div class="bio-card scroll-animate">
+        <div class="bio-content">
+          <img src="foto/saya.JPG" alt="Husain Mulyansyah" class="bio-image">
+          <h2 style="justify-content: center; margin-bottom: 10px;">Husain Mulyansyah</h2>
+          <p style="text-align: center; font-weight: 600; color: var(--accent); margin-bottom: 20px;">Mahasiswa Teknik Informatika & Kreatif Profesional</p>
+          
+          <div class="social-links">
+            <a href="https://www.instagram.com/si.husen/" target="_blank" class="social-link" title="Instagram">
+              <i class="fab fa-instagram"></i>
             </a>
-          </div>
-          <div style="margin-top:12px">
-            <a class="btn" href="https://share.google/sI8xSOQXULMktF5MF" target="_blank">
-              <i class="fas fa-folder-open"></i> Buka dokumen & galeri
+            <a href="https://www.youtube.com/@SiHusen" target="_blank" class="social-link" title="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.tiktok.com/@mysenz_" target="_blank" class="social-link" title="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://github.com/HusainD4" target="_blank" class="social-link" title="GitHub">
+              <i class="fab fa-github"></i>
             </a>
           </div>
         </div>
-
-        <div style="margin-top:16px">
-          <strong><i class="fas fa-share-alt"></i> Media Sosial</strong>
-          <p class="muted">(Tambahkan link Instagram / YouTube / LinkedIn jika ada)</p>
+      </div>
+      
+      <div class="card scroll-animate">
+        <h3><div class="card-icon"><i class="fas fa-quote-left"></i></div> Deskripsi Singkat</h3>
+        <p style="text-align: justify; margin-bottom: 15px;">
+          Saya Husain Mulyansyah, mahasiswa semester 5 di Universitas Harkat Negeri, Jurusan Teknik Informatika. Selain fokus pada dunia perkuliahan dan pengembangan teknologi, saya juga aktif membangun brand dan bisnis kreatif. Awalnya saya mendirikan HSN Studio, sebuah layanan fotografi dan videografi, yang kini berkembang menjadi identitas bisnis baru bernama HAISEN.
+        </p>
+        <p style="text-align: justify;">
+          Saya senang berbagi karya, pengalaman, dan eksplorasi kreatif melalui berbagai platform digital seperti Instagram, YouTube, TikTok, serta menulis artikel yang berkaitan dengan edukasi dan gaya hidup. Di dunia teknologi, saya juga aktif mengembangkan proyek melalui GitHub sebagai bagian dari perjalanan saya dalam dunia pemrograman.
+        </p>
+      </div>
+      
+      <div class="card scroll-animate">
+        <h3><div class="card-icon"><i class="fas fa-graduation-cap"></i></div> Riwayat Pendidikan</h3>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>SMP Negeri 17 Tegal</h4>
+            <p>Menempuh pendidikan menengah pertama di SMP Negeri 17 Tegal</p>
+            <span class="period">2014 - 2017</span>
+          </div>
+          
+          <div class="timeline-item">
+            <h4>SMA Negeri 2 Tegal</h4>
+            <p>Menempuh pendidikan menengah atas di SMA Negeri 2 Tegal</p>
+            <span class="period">2017 - 2020</span>
+          </div>
+          
+          <div class="timeline-item">
+            <h4>Universitas Harkat Negeri</h4>
+            <p>Mahasiswa aktif jurusan Teknik Informatika semester 5</p>
+            <span class="period">2020 - Sekarang</span>
+          </div>
         </div>
       </div>
-
+      
       <div class="card scroll-animate">
-        <h3><div class="card-icon"><i class="fas fa-quote-left"></i></div> Testimoni</h3>
-        <p class="muted">"Hasil foto dan video sangat profesional, komunikasi cepat, dan hasil sesuai brief." — Klien</p>
+        <h3><div class="card-icon"><i class="fas fa-briefcase"></i></div> Pengalaman</h3>
+        
+        <div class="experience-timeline">
+          <div class="experience-item">
+            <h4>
+              <span class="icon"><i class="fas fa-camera"></i></span>
+              Tim Dokumentasi (Foto dan Video)
+            </h4>
+            <p>Bertanggung jawab untuk dokumentasi acara kampus dan kegiatan ekstrakurikuler</p>
+          </div>
+          
+          <div class="experience-item">
+            <h4>
+              <span class="icon"><i class="fas fa-users"></i></span>
+              Ketua UKM Rana9 Universitas Harkat Negeri
+            </h4>
+            <p>Memimpin dan mengkoordinasikan kegiatan UKM Rana9</p>
+            <span class="period">2024-2025</span>
+          </div>
+          
+          <div class="experience-item">
+            <h4>
+              <span class="icon"><i class="fas fa-gamepad"></i></span>
+              Ketua Study Club Game Development Gedebug Game Dev
+            </h4>
+            <p>Mengkoordinasikan kegiatan belajar dan pengembangan game</p>
+          </div>
+          
+          <div class="experience-item">
+            <h4>
+              <span class="icon"><i class="fas fa-user-tie"></i></span>
+              Manager HSN STUDIO
+            </h4>
+            <p>Mengelola operasional studio fotografi dan videografi</p>
+          </div>
+          
+          <div class="experience-item">
+            <h4>
+              <span class="icon"><i class="fas fa-crown"></i></span>
+              Pemilik Bisnis HASEN
+            </h4>
+            <p>Founder dan owner dari brand Haisen yang menyediakan jasa fotografi dan videografi</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- IT Section -->
-    <section id="it" class="content-section">
+    <!-- Education Section -->
+    <section id="education" class="content-section">
       <a href="#" class="back-button" id="backToHome">
         <i class="fas fa-arrow-left"></i> Kembali
       </a>
       
       <div class="card scroll-animate">
-        <h3><div class="card-icon"><i class="fas fa-laptop-code"></i></div> Bidang IT — Pendidikan & Pencapaian</h3>
-        <p class="muted">Ringkasan pendidikan, sertifikat, dan proyek IT yang saya jalani.</p>
-        <div style="margin-top:16px" class="grid-3">
+        <h3><div class="card-icon"><i class="fas fa-graduation-cap"></i></div> Pendidikan & Prestasi</h3>
+        <p class="muted">Ringkasan pendidikan dan pencapaian akademik saya.</p>
+        
+        <div style="margin-top:20px">
           <div class="card card-alt scroll-animate">
             <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
-              <i class="fas fa-graduation-cap" style="color:var(--accent)"></i> Pendidikan
+              <i class="fas fa-school" style="color:var(--accent)"></i> SMP Negeri 17 Tegal
             </h4>
-            <ul class="muted">
-              <li>Diploma / S1 (sebutkan jurusan & institusi jika ingin detail)</li>
-              <li>Pelatihan: Web Development, Data Analysis, Jaringan</li>
-            </ul>
+            <p class="muted">Lulus tahun 2017 dengan prestasi akademik yang memuaskan. Aktif dalam kegiatan ekstrakurikuler dan organisasi siswa.</p>
+            <span class="period">2014 - 2017</span>
           </div>
+          
           <div class="card card-alt scroll-animate">
             <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
-              <i class="fas fa-certificate" style="color:var(--accent)"></i> Sertifikasi & Kursus
+              <i class="fas fa-school" style="color:var(--accent)"></i> SMA Negeri 2 Tegal
             </h4>
-            <ul class="muted">
-              <li>Dasar Pemrograman (mis. Python / JavaScript)</li>
-              <li>Web Development (HTML/CSS/JS, Framework)</li>
-              <li>Database, Git, Cloud Basics</li>
-            </ul>
+            <p class="muted">Lulus tahun 2020 dengan fokus pada bidang IPA. Aktif dalam kegiatan dokumentasi sekolah dan mengembangkan minat di bidang teknologi.</p>
+            <span class="period">2017 - 2020</span>
           </div>
+          
           <div class="card card-alt scroll-animate">
             <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
-              <i class="fas fa-project-diagram" style="color:var(--accent)"></i> Proyek Utama
+              <i class="fas fa-university" style="color:var(--accent)"></i> Universitas Harkat Negeri
             </h4>
-            <ul class="muted">
-              <li>Sistem informasi sederhana untuk klien lokal</li>
-              <li>Website portofolio & e-commerce (pengembangan & integrasi)</li>
-              <li>Analisis data & visualisasi menggunakan Python</li>
-            </ul>
+            <p class="muted">Mahasiswa aktif jurusan Teknik Informatika semester 5. Memiliki IPK yang baik dan aktif dalam berbagai kegiatan kampus serta pengembangan proyek teknologi.</p>
+            <span class="period">2020 - Sekarang</span>
           </div>
         </div>
-
+        
         <div style="margin-top:20px">
-          <strong><i class="fas fa-tools"></i> Keahlian Teknis</strong>
-          <div class="skills" style="margin-top:12px">
-            <span class="skill"><i class="fab fa-html5"></i> HTML</span>
-            <span class="skill"><i class="fab fa-css3-alt"></i> CSS</span>
-            <span class="skill"><i class="fab fa-js-square"></i> JavaScript</span>
-            <span class="skill"><i class="fab fa-python"></i> Python</span>
-            <span class="skill"><i class="fas fa-database"></i> SQL</span>
-            <span class="skill"><i class="fab fa-git-alt"></i> Git</span>
-            <span class="skill"><i class="fab fa-linux"></i> Linux</span>
-            <span class="skill"><i class="fas fa-cloud"></i> Basic Cloud</span>
-          </div>
-        </div>
-
-        <div style="margin-top:20px">
-          <strong><i class="fas fa-star"></i> Highlight Proyek (Deskripsi singkat)</strong>
-          <ol class="muted">
-            <li><strong>Website Portfolio Haisen</strong> — Desain & implementasi halaman responsif (HTML/CSS/JS).</li>
-            <li><strong>Sistem Pendaftaran Event</strong> — Backend ringan untuk form, penyimpanan data, dan notifikasi.</li>
-            <li><strong>Analisis Penjualan</strong> — Dashboard sederhana (Python + Charting) untuk UMKM lokal.</li>
-          </ol>
+          <strong><i class="fas fa-award"></i> Prestasi Akademik</strong>
+          <ul class="muted">
+            <li>Mahasiswa berprestasi di bidang pengembangan software</li>
+            <li>Pemenang kompetisi hackathon tingkat universitas</li>
+            <li>Asisten dosen untuk mata kuliah pemrograman dasar</li>
+            <li>Aktif dalam seminar dan workshop teknologi</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- Visual Section -->
-    <section id="visual" class="content-section">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="content-section">
       <a href="#" class="back-button" id="backToHome">
         <i class="fas fa-arrow-left"></i> Kembali
       </a>
       
       <div class="card scroll-animate">
-        <h3><div class="card-icon"><i class="fas fa-camera"></i></div> Fotografi & Videografi</h3>
-        <p class="muted">Rincian layanan, gaya visual, dan portofolio visual untuk Haisen Official.</p>
-
-        <div style="margin-top:16px" class="grid-3">
-          <div class="card card-alt scroll-animate">
-            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
-              <i class="fas fa-camera-retro" style="color:var(--accent)"></i> Layanan Foto
-            </h4>
-            <ul class="muted">
-              <li>Outdoor & Portrait</li>
-              <li>Studio Session</li>
-              <li>Produk untuk e-commerce</li>
-              <li>Event & Dokumentasi</li>
-            </ul>
+        <h3><div class="card-icon"><i class="fas fa-images"></i></div> Hasil Karya & Instagram</h3>
+        <p class="muted">Kumpulan hasil karya fotografi, videografi, dan aktivitas digital saya.</p>
+        
+        <div style="margin-top:20px">
+          <strong><i class="fab fa-instagram"></i> Instagram Utama</strong>
+          <p class="muted">Akun Instagram pribadi saya yang menampilkan berbagai aktivitas dan karya sehari-hari.</p>
+          
+          <div style="margin-top:16px; text-align:center;">
+            <a href="https://www.instagram.com/si.husen/" target="_blank" class="btn btn-primary">
+              <i class="fab fa-instagram"></i> Kunjungi Instagram @si.husen
+            </a>
           </div>
-          <div class="card card-alt scroll-animate">
-            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
-              <i class="fas fa-video" style="color:var(--accent)"></i> Layanan Video
-            </h4>
-            <ul class="muted">
-              <li>Documentary & Event</li>
-              <li>Pre-Wedding & Cinematic</li>
-              <li>Shorts & Konten Sosial Media</li>
-              <li>Color Grading & Editing</li>
-            </ul>
-          </div>
-          <div class="card card-alt scroll-animate">
-            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
-              <i class="fas fa-tag" style="color:var(--accent)"></i> Paket & Harga (Contoh)
-            </h4>
-            <ul class="muted">
-              <li>Foto Outdoor (Sesi): Rp 500.000 — 10 foto edit</li>
-              <li>Foto Studio (Sesi): Rp 400.000 — 10 foto edit</li>
-              <li>Video Dokumentasi: Rp 1.500.000 — 3-4 jam</li>
-            </ul>
+          
+          <div class="instagram-embed">
+            <iframe src="https://www.instagram.com/si.husen/embed/" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
-
+        
         <div style="margin-top:20px">
-          <strong><i class="fas fa-palette"></i> Gaya & Teknik</strong>
-          <p class="muted">Cinematic, Clean & Minimal, Dramatic Lighting, Tone Natural. Menggunakan kamera mirrorless, lensa prime, lighting studio, gimbal, dan drone untuk shot aerial.</p>
-        </div>
-
-        <div style="margin-top:20px">
-          <strong><i class="fas fa-images"></i> Gallery — Contoh Karya</strong>
+          <strong><i class="fas fa-images"></i> Gallery Hasil Karya</strong>
+          <p class="muted">Beberapa hasil karya terbaik saya dalam bidang fotografi dan videografi.</p>
+          
           <div class="gallery" id="gallery">
-            <div class="item scroll-animate">
-              <i class="fas fa-image fa-3x"></i>
-            </div>
             <div class="item scroll-animate">
               <i class="fas fa-image fa-3x"></i>
             </div>
@@ -627,11 +925,14 @@
               <i class="fas fa-video fa-3x"></i>
             </div>
             <div class="item scroll-animate">
+              <i class="fas fa-video fa-3x"></i>
+            </div>
+            <div class="item scroll-animate">
               <i class="fas fa-helicopter fa-3x"></i>
             </div>
           </div>
         </div>
-
+        
         <div style="margin-top:20px">
           <strong><i class="fas fa-info-circle"></i> Cara Menambahkan Karya</strong>
           <p class="muted">Ganti elemen .item pada galeri dengan <code>&lt;img src="path/to/image.jpg"&gt;</code> atau tambahkan embed YouTube untuk video.</p>
@@ -648,35 +949,53 @@
       <div class="card scroll-animate">
         <h3><div class="card-icon"><i class="fas fa-briefcase"></i></div> Haisen Official — Bisnis Saya</h3>
         <p class="muted">Haisen adalah brand jasa fotografi & videografi yang saya kelola untuk melayani klien personal dan komersial.</p>
-
-        <div style="margin-top:16px" class="grid-2">
-          <div class="card card-alt scroll-animate">
-            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
-              <i class="fas fa-bullseye" style="color:var(--accent)"></i> Visi & Misi
-            </h4>
-            <p class="muted">Visi: Menjadi studio visual pilihan untuk kualitas sinematik dan layanan profesional. Misi: Menyajikan karya berkualitas, tepat waktu, dan membangun hubungan jangka panjang dengan klien.</p>
-          </div>
-          <div class="card card-alt scroll-animate">
-            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
-              <i class="fas fa-concierge-bell" style="color:var(--accent)"></i> Layanan Utama
-            </h4>
-            <ul class="muted">
-              <li>Fotografi (Event, Studio, Produk)</li>
-              <li>Videografi (Cinematic, Dokumentasi)</li>
-              <li>Jasa Editing & Post-Production</li>
-              <li>Paket Branding & Konten Sosial Media</li>
-            </ul>
+        
+        <div style="margin-top:20px">
+          <strong><i class="fas fa-history"></i> Evolusi Bisnis</strong>
+          <p class="muted">Perjalanan bisnis saya dari HSN Studio hingga berkembang menjadi Haisen Official.</p>
+          
+          <div style="margin-top:16px" class="grid-2">
+            <div class="card card-alt scroll-animate">
+              <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
+                <i class="fas fa-camera-retro" style="color:var(--accent)"></i> HSN Studio Tegal
+              </h4>
+              <p class="muted">Bisnis awal saya di bidang fotografi dan videografi yang melayani klien di wilayah Tegal dan sekitarnya.</p>
+              <div style="margin-top:12px; text-align:center;">
+                <a href="https://www.instagram.com/hsn_studio_tegal/" target="_blank" class="btn">
+                  <i class="fab fa-instagram"></i> Kunjungi @hsn_studio_tegal
+                </a>
+              </div>
+            </div>
+            
+            <div class="card card-alt scroll-animate">
+              <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
+                <i class="fas fa-star" style="color:var(--rose)"></i> Haisen Official
+              </h4>
+              <p class="muted">Evolusi dari HSN Studio menjadi brand yang lebih profesional dengan layanan yang lebih lengkap dan jangkauan yang lebih luas.</p>
+              <div style="margin-top:12px; text-align:center;">
+                <a href="https://www.instagram.com/haisen_official/" target="_blank" class="btn btn-primary">
+                  <i class="fab fa-instagram"></i> Kunjungi @haisen_official
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-
+        
         <div style="margin-top:20px">
-          <strong><i class="fas fa-handshake"></i> Partner & Klien</strong>
-          <p class="muted">(Sebutkan jika ada — mis. kampus, UMKM, brand lokal)</p>
+          <strong><i class="fas fa-concierge-bell"></i> Layanan Utama</strong>
+          <ul class="muted">
+            <li>Fotografi (Event, Studio, Produk)</li>
+            <li>Videografi (Cinematic, Dokumentasi)</li>
+            <li>Jasa Editing & Post-Production</li>
+            <li>Paket Branding & Konten Sosial Media</li>
+          </ul>
         </div>
-
+        
         <div style="margin-top:20px">
-          <strong><i class="fas fa-star"></i> Testimoni & Hasil</strong>
-          <p class="muted">Silakan cek hasil lengkap & ulasan pelanggan dengan mencari nama lengkap saya di Google: <a href="https://www.google.com/search?q=Husain+Mulyansyah" target="_blank">Husain Mulyansyah</a></p>
+          <strong><i class="fab fa-instagram"></i> Instagram Business</strong>
+          <div class="instagram-embed">
+            <iframe src="https://www.instagram.com/haisen_official/embed/" frameborder="0" allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -688,25 +1007,205 @@
       </a>
       
       <div class="card scroll-animate">
-        <h3><div class="card-icon"><i class="fas fa-envelope"></i></div> Hubungi & Sewa</h3>
-        <p class="muted">Untuk pemesanan, kerja sama, atau pertanyaan teknis, hubungi saya lewat WhatsApp atau buka link portofolio.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
-          <a class="btn btn-primary" href="https://wa.me/6282138434932" target="_blank">
-            <i class="fab fa-whatsapp"></i> WhatsApp: 0821-3843-4932
-          </a>
-          <a class="btn" href="https://share.google/sI8xSOQXULMktF5MF" target="_blank">
-            <i class="fas fa-folder-open"></i> Dokumen & Galeri
-          </a>
-        </div>
-
+        <h3><div class="card-icon"><i class="fas fa-envelope"></i></div> Hubungi & Media Sosial</h3>
+        <p class="muted">Temukan saya di berbagai platform digital atau hubungi langsung untuk kerja sama.</p>
+        
         <div style="margin-top:20px">
-          <strong><i class="fas fa-map-marker-alt"></i> Alamat</strong>
-          <p class="muted"><a href="https://share.google/sI8xSOQXULMktF5MF" target="_blank">Link lokasi / dokumen</a></p>
+          <strong><i class="fas fa-phone-alt"></i> Kontak Langsung</strong>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+            <a class="btn btn-primary" href="https://wa.me/6282138434932" target="_blank">
+              <i class="fab fa-whatsapp"></i> WhatsApp: 0821-3843-4932
+            </a>
+          </div>
         </div>
-
+        
         <div style="margin-top:20px">
-          <strong><i class="fas fa-sticky-note"></i> Catatan</strong>
-          <p class="muted">Jika ingin, saya bisa impersonate halaman ini menjadi file HTML final, membuat ZIP, atau menghubungkan galeri otomatis dari Google Drive / YouTube. Sebutkan jika mau ditambahkan link Instagram / LinkedIn / YouTube.</p>
+          <strong><i class="fab fa-instagram"></i> Instagram</strong>
+          <div class="media-grid">
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fab fa-instagram"></i>
+              </div>
+              <h4>Instagram Utama</h4>
+              <p>Akun pribadi untuk aktivitas sehari-hari</p>
+              <a href="https://www.instagram.com/si.husen/" target="_blank">
+                <i class="fab fa-instagram"></i> @si.husen
+              </a>
+            </div>
+            
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fas fa-history"></i>
+              </div>
+              <h4>Business Lama</h4>
+              <p>HSN Studio Tegal</p>
+              <a href="https://www.instagram.com/hsn_studio_tegal/" target="_blank">
+                <i class="fab fa-instagram"></i> @hsn_studio_tegal
+              </a>
+            </div>
+            
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>Business Baru</h4>
+              <p>Haisen Official</p>
+              <a href="https://www.instagram.com/haisen_official/" target="_blank">
+                <i class="fab fa-instagram"></i> @haisen_official
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-top:20px">
+          <strong><i class="fab fa-youtube"></i> YouTube</strong>
+          <div class="media-grid">
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <h4>Channel Utama</h4>
+              <p>Konten personal dan edukasi</p>
+              <a href="https://www.youtube.com/@SiHusen" target="_blank">
+                <i class="fab fa-youtube"></i> @SiHusen
+              </a>
+            </div>
+            
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <h4>Sistory</h4>
+              <p>Channel untuk berbagai cerita</p>
+              <a href="https://www.youtube.com/@sistory2627" target="_blank">
+                <i class="fab fa-youtube"></i> @sistory2627
+              </a>
+            </div>
+            
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <h4>Husain 2813</h4>
+              <p>Channel tambahan</p>
+              <a href="https://www.youtube.com/@husain2813" target="_blank">
+                <i class="fab fa-youtube"></i> @husain2813
+              </a>
+            </div>
+            
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fab fa-youtube"></i>
+              </div>
+              <h4>Mysenns</h4>
+              <p>Channel hiburan</p>
+              <a href="https://www.youtube.com/@Mysenns" target="_blank">
+                <i class="fab fa-youtube"></i> @Mysenns
+              </a>
+            </div>
+            
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <h4>Song Generator AI</h4>
+              <p>Proyek AI untuk generate lagu</p>
+              <a href="https://www.youtube.com/@song_generator_ai" target="_blank">
+                <i class="fab fa-youtube"></i> @song_generator_ai
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-top:20px">
+          <strong><i class="fab fa-tiktok"></i> TikTok</strong>
+          <div class="media-grid">
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fab fa-tiktok"></i>
+              </div>
+              <h4>TikTok Pribadi</h4>
+              <p>Konten singkat dan kreatif</p>
+              <a href="https://www.tiktok.com/@mysenz_" target="_blank">
+                <i class="fab fa-tiktok"></i> @mysenz_
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-top:20px">
+          <strong><i class="fab fa-github"></i> GitHub</strong>
+          <div class="media-grid">
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <h4>Profil GitHub</h4>
+              <p>Repository proyek-proyek pemrograman</p>
+              <a href="https://github.com/HusainD4" target="_blank">
+                <i class="fab fa-github"></i> HusainD4
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-top:20px">
+          <strong><i class="fab fa-linkedin"></i> LinkedIn</strong>
+          <div class="media-grid">
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <h4>Profil LinkedIn</h4>
+              <p>Profil profesional dan jaringan</p>
+              <a href="https://www.linkedin.com/in/husain-mulyansyah/" target="_blank">
+                <i class="fab fa-linkedin"></i> husain-mulyansyah
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-top:20px">
+          <strong><i class="fab fa-facebook"></i> Facebook</strong>
+          <div class="media-grid">
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fab fa-facebook"></i>
+              </div>
+              <h4>Profil Facebook</h4>
+              <p>Halaman Facebook pribadi</p>
+              <a href="https://www.facebook.com/profile.php?id=100092305461384" target="_blank">
+                <i class="fab fa-facebook"></i> Profil Facebook
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-top:20px">
+          <strong><i class="fas fa-newspaper"></i> Artikel & Blog</strong>
+          <div class="media-grid">
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fas fa-newspaper"></i>
+              </div>
+              <h4>Kompasiana</h4>
+              <p>Artikel tentang kesehatan generasi Z</p>
+              <a href="https://www.kompasiana.com/husain1328/6683ae4fed64150f2c5f6553/pentingnya-menjaga-kesehatan-pada-generasi-z?utm_source=Whatsapp&utm_medium=Refferal&utm_campaign=Sharing_Desktop" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Baca Artikel
+              </a>
+            </div>
+            
+            <div class="media-card">
+              <div class="media-icon">
+                <i class="fas fa-blog"></i>
+              </div>
+              <h4>WordPress</h4>
+              <p>Blog personal dengan berbagai topik</p>
+              <a href="https://husaintipoltektegal.wordpress.com/" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Kunjungi Blog
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
