@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portofolio — Husain Mulyansyah | Haisen Official</title>
+  <meta name="description" content="Portofolio lengkap Husain Mulyansyah — latar belakang IT, sertifikat & proyek, fotografi & videografi, dan Haisen Official." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #f0f9ff;
+      --accent: #60a5fa;
+      --rose: #f9a8d4;
+      --dark: #1e293b;
+      --muted: #64748b;
+      --card: #ffffff;
+      --card-alt: #f8fafc;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background: linear-gradient(180deg, var(--bg), #ffffff);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      overflow-y: hidden; /* Awalnya tidak bisa di-scroll */
+      transition: overflow-y 0.5s ease;
+    }
+    
+    body.content-visible {
+      overflow-y: visible; /* Bisa di-scroll setelah konten muncul */
+    }
+    
+    /* Hero Section - Full Screen */
+    .hero-section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(249, 168, 212, 0.05));
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .hero-section.hidden {
+      opacity: 0;
+      transform: translateY(-50px);
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+    }
+    
+    .hero-title {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--accent), var(--rose));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: var(--muted);
+      margin-bottom: 3rem;
+      animation: fadeIn 2s ease-in-out;
+    }
+    
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      animation: fadeIn 2.5s ease-in-out;
+    }
+    
+    .nav-btn {
+      padding: 14px 28px;
+      border-radius: 30px;
+      background: white;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(30, 41, 59, 0.05);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .nav-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--rose));
+      z-index: -1;
+      transition: transform 0.3s ease;
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    
+    .nav-btn:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .nav-btn:hover {
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(30, 41, 59, 0.08);
+    }
+    
+    /* Content Sections */
+    .content-wrapper {
+      display: none;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .content-wrapper.visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .content-section {
+      display: none;
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .content-section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 10px 16px;
+      background: rgba(96, 165, 250, 0.1);
+      color: var(--accent);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .back-button:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateX(-5px);
+    }
+    
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(30, 41, 59, 0.03);
+      margin-bottom: 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(30, 41, 59, 0.06);
+    }
+    
+    .card-alt {
+      background: var(--card-alt);
+    }
+    
+    .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      margin-right: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--rose));
+      color: white;
+    }
+    
+    h2 {
+      margin: 0 0 12px 0;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+    }
+    
+    h3 {
+      margin: 0 0 16px 0;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+    }
+    
+    p.lead {
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 16px;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--rose));
+      z-index: -1;
+      transition: transform 0.3s ease;
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), var(--rose));
+      color: #fff;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(96, 165, 250, 0.3);
+    }
+    
+    .btn:hover {
+      background-color: rgba(30, 41, 59, 0.03);
+    }
+    
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    
+    ul {
+      margin: 12px 0 0 20px;
+    }
+    
+    .muted {
+      color: var(--muted);
+    }
+    
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .skill {
+      background: rgba(96, 165, 250, 0.1);
+      color: var(--accent);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .skill:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+    
+    .item {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #111;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    footer {
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      margin-top: 40px;
+      border-top: 1px solid rgba(30, 41, 59, 0.05);
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Scroll animations */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .scroll-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive */
+    @media(max-width: 980px) {
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media(max-width: 560px) {
+      .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .nav-btn {
+        width: 80%;
+        max-width: 300px;
+      }
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section - Full Screen -->
+  <section class="hero-section" id="hero">
+    <h1 class="hero-title">Portofolio Husain Mulyansyah</h1>
+    <p class="hero-subtitle">Fotografi, Videografi & IT Professional</p>
+    
+    <div class="nav-buttons">
+      <a href="#" class="nav-btn" data-section="about">
+        <i class="fas fa-user"></i> Tentang
+      </a>
+      <a href="#" class="nav-btn" data-section="it">
+        <i class="fas fa-laptop-code"></i> Bidang IT
+      </a>
+      <a href="#" class="nav-btn" data-section="visual">
+        <i class="fas fa-camera"></i> Foto & Video
+      </a>
+      <a href="#" class="nav-btn" data-section="business">
+        <i class="fas fa-briefcase"></i> Haisen
+      </a>
+      <a href="#" class="nav-btn" data-section="contact">
+        <i class="fas fa-envelope"></i> Kontak
+      </a>
+    </div>
+  </section>
+
+  <!-- Content Sections -->
+  <div class="content-wrapper" id="contentWrapper">
+    <!-- About Section -->
+    <section id="about" class="content-section">
+      <a href="#" class="back-button" id="backToHome">
+        <i class="fas fa-arrow-left"></i> Kembali
+      </a>
+      
+      <div class="card scroll-animate">
+        <h2><div class="card-icon"><i class="fas fa-user"></i></div> Halo — Saya <strong>Husain Mulyansyah</strong></h2>
+        <p class="lead">Saya bergerak di bidang IT (pengembangan & proyek), serta profesional di fotografi & videografi dengan brand <strong>Haisen Official</strong>. Menggabungkan kemampuan teknis dan estetika visual untuk solusi digital dan karya kreatif.</p>
+        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="https://wa.me/6282138434932" target="_blank">
+            <i class="fab fa-whatsapp"></i> Hubungi: 0821-3843-4932
+          </a>
+          <a class="btn" href="#" data-section="it">
+            <i class="fas fa-laptop-code"></i> Lihat Prestasi IT
+          </a>
+          <a class="btn" href="#" data-section="visual">
+            <i class="fas fa-camera"></i> Lihat Karya Visual
+          </a>
+        </div>
+        <div style="margin-top:16px;color:var(--muted);font-size:14px">
+          <i class="fas fa-folder-open"></i> Portofolio lengkap & dokumen: 
+          <a href="https://share.google/sI8xSOQXULMktF5MF" target="_blank">Link Google Drive</a>
+        </div>
+      </div>
+
+      <div class="card scroll-animate">
+        <h3><div class="card-icon"><i class="fas fa-info-circle"></i></div> Ringkasan</h3>
+        <p class="muted">Nama: <strong>Husain Mulyansyah</strong><br>Brand: <strong>Haisen Official</strong></p>
+        <div style="margin-top:12px"><strong>Spesialis:</strong>
+          <div class="muted">Fotografi, Videografi, Web Development, Data Analysis</div>
+        </div>
+
+        <div style="margin-top:16px">
+          <strong><i class="fas fa-phone-alt"></i> Kontak Cepat</strong>
+          <div style="margin-top:12px">
+            <a class="btn btn-primary" href="https://wa.me/6282138434932" target="_blank">
+              <i class="fab fa-whatsapp"></i> WhatsApp: 0821-3843-4932
+            </a>
+          </div>
+          <div style="margin-top:12px">
+            <a class="btn" href="https://share.google/sI8xSOQXULMktF5MF" target="_blank">
+              <i class="fas fa-folder-open"></i> Buka dokumen & galeri
+            </a>
+          </div>
+        </div>
+
+        <div style="margin-top:16px">
+          <strong><i class="fas fa-share-alt"></i> Media Sosial</strong>
+          <p class="muted">(Tambahkan link Instagram / YouTube / LinkedIn jika ada)</p>
+        </div>
+      </div>
+
+      <div class="card scroll-animate">
+        <h3><div class="card-icon"><i class="fas fa-quote-left"></i></div> Testimoni</h3>
+        <p class="muted">"Hasil foto dan video sangat profesional, komunikasi cepat, dan hasil sesuai brief." — Klien</p>
+      </div>
+    </section>
+
+    <!-- IT Section -->
+    <section id="it" class="content-section">
+      <a href="#" class="back-button" id="backToHome">
+        <i class="fas fa-arrow-left"></i> Kembali
+      </a>
+      
+      <div class="card scroll-animate">
+        <h3><div class="card-icon"><i class="fas fa-laptop-code"></i></div> Bidang IT — Pendidikan & Pencapaian</h3>
+        <p class="muted">Ringkasan pendidikan, sertifikat, dan proyek IT yang saya jalani.</p>
+        <div style="margin-top:16px" class="grid-3">
+          <div class="card card-alt scroll-animate">
+            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
+              <i class="fas fa-graduation-cap" style="color:var(--accent)"></i> Pendidikan
+            </h4>
+            <ul class="muted">
+              <li>Diploma / S1 (sebutkan jurusan & institusi jika ingin detail)</li>
+              <li>Pelatihan: Web Development, Data Analysis, Jaringan</li>
+            </ul>
+          </div>
+          <div class="card card-alt scroll-animate">
+            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
+              <i class="fas fa-certificate" style="color:var(--accent)"></i> Sertifikasi & Kursus
+            </h4>
+            <ul class="muted">
+              <li>Dasar Pemrograman (mis. Python / JavaScript)</li>
+              <li>Web Development (HTML/CSS/JS, Framework)</li>
+              <li>Database, Git, Cloud Basics</li>
+            </ul>
+          </div>
+          <div class="card card-alt scroll-animate">
+            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
+              <i class="fas fa-project-diagram" style="color:var(--accent)"></i> Proyek Utama
+            </h4>
+            <ul class="muted">
+              <li>Sistem informasi sederhana untuk klien lokal</li>
+              <li>Website portofolio & e-commerce (pengembangan & integrasi)</li>
+              <li>Analisis data & visualisasi menggunakan Python</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:20px">
+          <strong><i class="fas fa-tools"></i> Keahlian Teknis</strong>
+          <div class="skills" style="margin-top:12px">
+            <span class="skill"><i class="fab fa-html5"></i> HTML</span>
+            <span class="skill"><i class="fab fa-css3-alt"></i> CSS</span>
+            <span class="skill"><i class="fab fa-js-square"></i> JavaScript</span>
+            <span class="skill"><i class="fab fa-python"></i> Python</span>
+            <span class="skill"><i class="fas fa-database"></i> SQL</span>
+            <span class="skill"><i class="fab fa-git-alt"></i> Git</span>
+            <span class="skill"><i class="fab fa-linux"></i> Linux</span>
+            <span class="skill"><i class="fas fa-cloud"></i> Basic Cloud</span>
+          </div>
+        </div>
+
+        <div style="margin-top:20px">
+          <strong><i class="fas fa-star"></i> Highlight Proyek (Deskripsi singkat)</strong>
+          <ol class="muted">
+            <li><strong>Website Portfolio Haisen</strong> — Desain & implementasi halaman responsif (HTML/CSS/JS).</li>
+            <li><strong>Sistem Pendaftaran Event</strong> — Backend ringan untuk form, penyimpanan data, dan notifikasi.</li>
+            <li><strong>Analisis Penjualan</strong> — Dashboard sederhana (Python + Charting) untuk UMKM lokal.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Section -->
+    <section id="visual" class="content-section">
+      <a href="#" class="back-button" id="backToHome">
+        <i class="fas fa-arrow-left"></i> Kembali
+      </a>
+      
+      <div class="card scroll-animate">
+        <h3><div class="card-icon"><i class="fas fa-camera"></i></div> Fotografi & Videografi</h3>
+        <p class="muted">Rincian layanan, gaya visual, dan portofolio visual untuk Haisen Official.</p>
+
+        <div style="margin-top:16px" class="grid-3">
+          <div class="card card-alt scroll-animate">
+            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
+              <i class="fas fa-camera-retro" style="color:var(--accent)"></i> Layanan Foto
+            </h4>
+            <ul class="muted">
+              <li>Outdoor & Portrait</li>
+              <li>Studio Session</li>
+              <li>Produk untuk e-commerce</li>
+              <li>Event & Dokumentasi</li>
+            </ul>
+          </div>
+          <div class="card card-alt scroll-animate">
+            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
+              <i class="fas fa-video" style="color:var(--accent)"></i> Layanan Video
+            </h4>
+            <ul class="muted">
+              <li>Documentary & Event</li>
+              <li>Pre-Wedding & Cinematic</li>
+              <li>Shorts & Konten Sosial Media</li>
+              <li>Color Grading & Editing</li>
+            </ul>
+          </div>
+          <div class="card card-alt scroll-animate">
+            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
+              <i class="fas fa-tag" style="color:var(--accent)"></i> Paket & Harga (Contoh)
+            </h4>
+            <ul class="muted">
+              <li>Foto Outdoor (Sesi): Rp 500.000 — 10 foto edit</li>
+              <li>Foto Studio (Sesi): Rp 400.000 — 10 foto edit</li>
+              <li>Video Dokumentasi: Rp 1.500.000 — 3-4 jam</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:20px">
+          <strong><i class="fas fa-palette"></i> Gaya & Teknik</strong>
+          <p class="muted">Cinematic, Clean & Minimal, Dramatic Lighting, Tone Natural. Menggunakan kamera mirrorless, lensa prime, lighting studio, gimbal, dan drone untuk shot aerial.</p>
+        </div>
+
+        <div style="margin-top:20px">
+          <strong><i class="fas fa-images"></i> Gallery — Contoh Karya</strong>
+          <div class="gallery" id="gallery">
+            <div class="item scroll-animate">
+              <i class="fas fa-image fa-3x"></i>
+            </div>
+            <div class="item scroll-animate">
+              <i class="fas fa-image fa-3x"></i>
+            </div>
+            <div class="item scroll-animate">
+              <i class="fas fa-image fa-3x"></i>
+            </div>
+            <div class="item scroll-animate">
+              <i class="fas fa-image fa-3x"></i>
+            </div>
+            <div class="item scroll-animate">
+              <i class="fas fa-video fa-3x"></i>
+            </div>
+            <div class="item scroll-animate">
+              <i class="fas fa-helicopter fa-3x"></i>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px">
+          <strong><i class="fas fa-info-circle"></i> Cara Menambahkan Karya</strong>
+          <p class="muted">Ganti elemen .item pada galeri dengan <code>&lt;img src="path/to/image.jpg"&gt;</code> atau tambahkan embed YouTube untuk video.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Section -->
+    <section id="business" class="content-section">
+      <a href="#" class="back-button" id="backToHome">
+        <i class="fas fa-arrow-left"></i> Kembali
+      </a>
+      
+      <div class="card scroll-animate">
+        <h3><div class="card-icon"><i class="fas fa-briefcase"></i></div> Haisen Official — Bisnis Saya</h3>
+        <p class="muted">Haisen adalah brand jasa fotografi & videografi yang saya kelola untuk melayani klien personal dan komersial.</p>
+
+        <div style="margin-top:16px" class="grid-2">
+          <div class="card card-alt scroll-animate">
+            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
+              <i class="fas fa-bullseye" style="color:var(--accent)"></i> Visi & Misi
+            </h4>
+            <p class="muted">Visi: Menjadi studio visual pilihan untuk kualitas sinematik dan layanan profesional. Misi: Menyajikan karya berkualitas, tepat waktu, dan membangun hubungan jangka panjang dengan klien.</p>
+          </div>
+          <div class="card card-alt scroll-animate">
+            <h4 style="margin-top:0; display:flex; align-items:center; gap:8px;">
+              <i class="fas fa-concierge-bell" style="color:var(--accent)"></i> Layanan Utama
+            </h4>
+            <ul class="muted">
+              <li>Fotografi (Event, Studio, Produk)</li>
+              <li>Videografi (Cinematic, Dokumentasi)</li>
+              <li>Jasa Editing & Post-Production</li>
+              <li>Paket Branding & Konten Sosial Media</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:20px">
+          <strong><i class="fas fa-handshake"></i> Partner & Klien</strong>
+          <p class="muted">(Sebutkan jika ada — mis. kampus, UMKM, brand lokal)</p>
+        </div>
+
+        <div style="margin-top:20px">
+          <strong><i class="fas fa-star"></i> Testimoni & Hasil</strong>
+          <p class="muted">Silakan cek hasil lengkap & ulasan pelanggan dengan mencari nama lengkap saya di Google: <a href="https://www.google.com/search?q=Husain+Mulyansyah" target="_blank">Husain Mulyansyah</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="content-section">
+      <a href="#" class="back-button" id="backToHome">
+        <i class="fas fa-arrow-left"></i> Kembali
+      </a>
+      
+      <div class="card scroll-animate">
+        <h3><div class="card-icon"><i class="fas fa-envelope"></i></div> Hubungi & Sewa</h3>
+        <p class="muted">Untuk pemesanan, kerja sama, atau pertanyaan teknis, hubungi saya lewat WhatsApp atau buka link portofolio.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+          <a class="btn btn-primary" href="https://wa.me/6282138434932" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp: 0821-3843-4932
+          </a>
+          <a class="btn" href="https://share.google/sI8xSOQXULMktF5MF" target="_blank">
+            <i class="fas fa-folder-open"></i> Dokumen & Galeri
+          </a>
+        </div>
+
+        <div style="margin-top:20px">
+          <strong><i class="fas fa-map-marker-alt"></i> Alamat</strong>
+          <p class="muted"><a href="https://share.google/sI8xSOQXULMktF5MF" target="_blank">Link lokasi / dokumen</a></p>
+        </div>
+
+        <div style="margin-top:20px">
+          <strong><i class="fas fa-sticky-note"></i> Catatan</strong>
+          <p class="muted">Jika ingin, saya bisa impersonate halaman ini menjadi file HTML final, membuat ZIP, atau menghubungkan galeri otomatis dari Google Drive / YouTube. Sebutkan jika mau ditambahkan link Instagram / LinkedIn / YouTube.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Haisen Official — Husain Mulyansyah · Semua hak cipta.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Get all navigation buttons
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const contentSections = document.querySelectorAll('.content-section');
+    const heroSection = document.getElementById('hero');
+    const contentWrapper = document.getElementById('contentWrapper');
+    const body = document.body;
+    const backButtons = document.querySelectorAll('.back-button');
+    
+    // Function to show a specific section
+    function showSection(sectionId) {
+      // Hide hero section with animation
+      heroSection.classList.add('hidden');
+      
+      // Show content wrapper with animation
+      setTimeout(() => {
+        contentWrapper.classList.add('visible');
+        body.classList.add('content-visible');
+        
+        // Hide all sections
+        contentSections.forEach(section => {
+          section.classList.remove('active');
+        });
+        
+        // Show the selected section
+        const selectedSection = document.getElementById(sectionId);
+        if (selectedSection) {
+          selectedSection.classList.add('active');
+          
+          // Trigger scroll animations
+          const scrollElements = selectedSection.querySelectorAll('.scroll-animate');
+          scrollElements.forEach(el => {
+            // Add a small delay for each element for a staggered effect
+            setTimeout(() => {
+              el.classList.add('visible');
+            }, 100);
+          });
+        }
+      }, 500);
+    }
+    
+    // Function to go back to home
+    function goToHome() {
+      // Hide content wrapper
+      contentWrapper.classList.remove('visible');
+      body.classList.remove('content-visible');
+      
+      // Show hero section
+      setTimeout(() => {
+        heroSection.classList.remove('hidden');
+        
+        // Reset all sections
+        contentSections.forEach(section => {
+          section.classList.remove('active');
+          
+          // Reset scroll animations
+          const scrollElements = section.querySelectorAll('.scroll-animate');
+          scrollElements.forEach(el => {
+            el.classList.remove('visible');
+          });
+        });
+      }, 500);
+    }
+    
+    // Add click event to all navigation buttons
+    navButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sectionId = button.getAttribute('data-section');
+        showSection(sectionId);
+      });
+    });
+    
+    // Add click event to back buttons
+    backButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToHome();
+      });
+    });
+    
+    // Add click event to internal links
+    document.querySelectorAll('a[data-section]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sectionId = link.getAttribute('data-section');
+        
+        // If content is already visible, just switch sections
+        if (contentWrapper.classList.contains('visible')) {
+          contentSections.forEach(section => {
+            section.classList.remove('active');
+          });
+          
+          const selectedSection = document.getElementById(sectionId);
+          if (selectedSection) {
+            selectedSection.classList.add('active');
+            
+            // Reset and trigger scroll animations
+            const scrollElements = selectedSection.querySelectorAll('.scroll-animate');
+            scrollElements.forEach(el => {
+              el.classList.remove('visible');
+              setTimeout(() => {
+                el.classList.add('visible');
+              }, 100);
+            });
+            
+            // Scroll to top
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          }
+        } else {
+          showSection(sectionId);
+        }
+      });
+    });
+    
+    // Scroll animation for elements that come into view
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all scroll-animate elements
+    document.querySelectorAll('.scroll-animate').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
